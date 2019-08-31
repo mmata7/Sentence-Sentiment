@@ -1,4 +1,4 @@
-with open("C:/Users\Mata\Documents\Semester 3\MCS\Thehoundofthebaskervilles.txt" ,"r") as B:
+with open("C:/File Location" ,"r") as B: #Text File Being Analyzed#
         text = B.read()
         text = text.replace("\n", " ")
         text = text.replace('-', '')
@@ -10,8 +10,8 @@ with open("C:/Users\Mata\Documents\Semester 3\MCS\Thehoundofthebaskervilles.txt"
         text = text.replace(':', '')
         text = text.replace(';', '')
         text = text.replace("'s", '')
-        text = text.replace("ì",'')
-        text = text.replace("î",'')
+        text = text.replace("‚Äú",'')
+        text = text.replace("‚Äù",'')
         text = text.replace("?",'.')
         text = text.replace("!",'.')
         text = text.replace(text, text.lower())
@@ -19,13 +19,13 @@ with open("C:/Users\Mata\Documents\Semester 3\MCS\Thehoundofthebaskervilles.txt"
         B = text
 
 
-with open("C:/Users\Mata\Documents\Semester 3\MCS/Positive Sentiments.txt", "r") as P:
+with open("C:/File Location", "r") as P: #Positive Sentiment Word File#
         text = P.read()
         text = text.replace("\n", " ")
         text = text.split(' ')
         P = text
 
-with open("C:/Users\Mata\Documents\Semester 3\MCS/Negative Sentiments.txt", "r") as N:
+with open("C:/File Location", "r") as N: #Negative Sentiment Word File#
         text = N.read()
         text = text.replace("\n", " ")
         text = text.split(' ')
