@@ -1,0 +1,85 @@
+with open("C:/Users\Mata\Documents\Semester 3\MCS\Thehoundofthebaskervilles.txt" ,"r") as B:
+        text = B.read()
+        text = text.replace("\n", " ")
+        text = text.replace('-', '')
+        text = text.replace('(', '')
+        text = text.replace(')', '')
+        text = text.replace(',', '')
+        text = text.replace('[', '')
+        text = text.replace(']', '')
+        text = text.replace(':', '')
+        text = text.replace(';', '')
+        text = text.replace("'s", '')
+        text = text.replace("“",'')
+        text = text.replace("”",'')
+        text = text.replace("?",'.')
+        text = text.replace("!",'.')
+        text = text.replace(text, text.lower())
+        text = text.split(". ")
+        B = text
+
+
+with open("C:/Users\Mata\Documents\Semester 3\MCS/Positive Sentiments.txt", "r") as P:
+        text = P.read()
+        text = text.replace("\n", " ")
+        text = text.split(' ')
+        P = text
+
+with open("C:/Users\Mata\Documents\Semester 3\MCS/Negative Sentiments.txt", "r") as N:
+        text = N.read()
+        text = text.replace("\n", " ")
+        text = text.split(' ')
+        N = text
+
+
+
+def Count():
+    counts = []
+    line = 0
+
+    for line in B:
+        count = 0
+        C = line.split(" ")
+
+        for i in N:
+            if i in C:
+                count -= 1
+
+        for i in P:
+            if i in C:
+                count += 1
+
+        Pos = 0
+        Neg = 0
+        Neu = 0
+
+        if count < 0:
+            count = 'Negative'
+            counts.append(str(count))
+
+        elif count > 0:
+            count = "Positive"
+            counts.append(str(count))
+
+        else:
+            count = "Neutral"
+            counts.append(str(count))
+
+    Pos = 0
+    Neg = 0
+    Neu = 0
+    for h in counts:
+        if h == 'Positive':
+            Pos += 1
+        elif h == 'Negative':
+            Neg += 1
+        else:
+            Neu +=1
+
+    print("Positive:", Pos)
+    print("Negative:", Neg)
+    print("Neutral:", Neu)
+    print("Total:", Neu + Pos + Neg)
+
+
+Count()
